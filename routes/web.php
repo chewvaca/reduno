@@ -31,7 +31,7 @@ Route::get('get_cliente',[MailController::class,'get']);
 Route::post('send_mail', [MailController::class, 'store']);
 
 Route::get("messages", [GraylogController::class, "index"]);
-Route::get("get_message", [GraylogController::class, "show"]);
+Route::post("get_message", [GraylogController::class, "show"]);
 
 Auth::routes();
 

@@ -26,10 +26,12 @@ class GraylogController extends Controller
      */
     public function show(Request $request)
     {
-        $ip = $request->input('ip');
-        $port = $request->input('port');
-        $from = $request->input('from');
-        $to = $request->input('to');
+        // return $request;
+        $ip = $request->ip;
+        $port = $request->port;
+        $from = $request->from;
+        $to = $request->to;
+        // return "ip: " . $ip . "port: " . $port . "from: " . $from . "to: " . $to;
         // return ($request);
 
 

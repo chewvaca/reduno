@@ -146,15 +146,23 @@ export default {
         },
         async graylog() {
             this.$root.swalLoading("Realizando busqueda");
-            await axios({
-                method: "get",
-                headers: { "X-Requested-By": "ndandrea" },
-                auth: { username: "ndandrea", password: "changeme" },
-                url: `http://192.168.7.120:9000/api/search/universal/absolute?query=${this.ip}%20AND%20${String(this.port)}&from=${this.from}%2000%3A00%3A00&to=${this.to}%2000%3A00%3A00&fields=message&decorate=true`
+            await axios.post("/get_message",{
+
+                    ip : this.ip,
+                    port : this.port,
+                    from: this.from,
+                    to: this.to
+
+            // await axios({
+                // method: "post",
+                // headers: { "X-Requested-By": "ndandrea" },
+                // auth: { username: "ndandrea", password: "changeme" },
+                // url: `http://192.168.7.120:9000/api/search/universal/absolute?query=${this.ip}%20AND%20${String(this.port)}&from=${this.from}%2000%3A00%3A00&to=${this.to}%2000%3A00%3A00&fields=message&decorate=true`
             })
                 .then(({ data }) => {
                     this.$root.swalSuccess("Busqueda éxitosa");
-                    this.output = data.messages;
+                    console.log(data);
+                    // this.output = data.messages;
                 })
                 .catch(({ response }) => {
                     console.error(response);
