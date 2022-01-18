@@ -9,6 +9,7 @@ import vuetify from './vuetify';
 Vue.use(Vuex);
 Vue.use(vuetify);
 Vue.use(VueSweetalert2);
+Vue.component("vuetify", require("./components/Vuetify.vue").default);
 Vue.component("search-index", require("./components/Sindex.vue").default);
 Vue.component("grayput", require("./components/Grayput.vue").default);
 // Vue.component("appnav", require("./components/Nav.vue").default);
